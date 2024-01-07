@@ -40,13 +40,13 @@ class ScreenLogin extends StatelessWidget {
                       DogCatcherImageWidget(
                           imageUrl: CustomImages().loginLogImage, width: 200),
                       DogCatcherTextfiledWidget(
-                        controller: loginController.usernameController,
+                        controller: loginController.emailController,
                         textInputAction: TextInputAction.next,
-                        textInputType: TextInputType.name,
+                        textInputType: TextInputType.emailAddress,
                         obxText: false,
                         validator: (value) =>
                             loginController.userValidation(value!),
-                        hintText: LocalName.username.tr,
+                        hintText: LocalName.email.tr,
                       ),
                       DogCatcherTextfiledWidget(
                           controller: loginController.passwrodController,
@@ -64,7 +64,10 @@ class ScreenLogin extends StatelessWidget {
                                 const Size(double.infinity, 50),
                               )),
                           onPressed: () {
-                            loginController.buttonClick();
+                            if (loginController.formKey.currentState!
+                                .validate()) {
+                              loginController.siginIn();
+                            }
                           },
                           child: DogCatcherTextWIdget(
                               text: LocalName.login.tr,

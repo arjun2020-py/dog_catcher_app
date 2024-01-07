@@ -46,13 +46,13 @@ class ScreenSignup extends StatelessWidget {
                     hintText: LocalName.username.tr,
                   ),
                   DogCatcherTextfiledWidget(
-                      controller: siginupController.mobileController,
+                      controller: siginupController.emailController,
                       textInputAction: TextInputAction.next,
-                      textInputType: TextInputType.phone,
+                      textInputType: TextInputType.emailAddress,
                       obxText: false,
                       validator: (value) =>
                           siginupController.mobileValidation(value!),
-                      hintText: LocalName.mobile.tr),
+                      hintText: LocalName.email.tr),
                   DogCatcherTextfiledWidget(
                       controller: siginupController.passwordController,
                       textInputAction: TextInputAction.next,
@@ -77,7 +77,10 @@ class ScreenSignup extends StatelessWidget {
                             const Size(double.infinity, 50),
                           )),
                       onPressed: () {
-                        siginupController.buttonClick();
+                        if (siginupController.formKey.currentState!
+                            .validate()) {
+                          siginupController.siginup();
+                        }
                       },
                       child: DogCatcherTextWIdget(
                           text: LocalName.siginup.tr,
