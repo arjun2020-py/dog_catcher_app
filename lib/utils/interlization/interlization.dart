@@ -10,7 +10,9 @@ class Interlization extends Translations {
           LocalName.password: "Password",
           LocalName.or: "OR",
           LocalName.donHaveanAccount: "Don’t have an account ?",
-          LocalName.siginup: "Siginup"
+          LocalName.siginup: "Siginup",
+          LocalName.mobile: "Mobile",
+          LocalName.conformPassword : "Conform password"
         }
       };
 }
@@ -23,4 +25,6 @@ class LocalName {
   static String or = 'or';
   static String donHaveanAccount = 'don_have_an_account';
   static String siginup = 'siginup';
+  static String mobile = 'mobile';
+  static String conformPassword = 'conform_password';
 }
