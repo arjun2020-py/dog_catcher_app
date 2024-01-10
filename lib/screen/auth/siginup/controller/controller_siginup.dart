@@ -1,5 +1,5 @@
 import 'package:dog_catcher_app/screen/auth/firebase_auth_implemention/fire_auth_services.dart';
-import 'package:dog_catcher_app/utils/custom_router/custom_router.dart';
+import 'package:dog_catcher_app/utils/custom_widget/dog_catcher_toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +11,8 @@ class SiginupController extends GetxController {
       emailController = TextEditingController(),
       passwordController = TextEditingController(),
       conformpasswordController = TextEditingController();
+
+  RxBool isAuthenticated = false.obs;
 
   userValidation(String value) {
     if (value.isEmpty) {
@@ -41,6 +43,7 @@ class SiginupController extends GetxController {
   }
 
   siginup() async {
+    isAuthenticated(true);
     String username = usernameController.text;
     String email = emailController.text;
     String password = passwordController.text;
@@ -48,12 +51,13 @@ class SiginupController extends GetxController {
 
     User? user =
         await _authServices.siginupWithEmailAndPassword(email, password);
+    isAuthenticated(false);    
 
     if (user != null) {
-      print("User is successfully created");
+      dogCatcherShowToast(message: "User is successfully created");
       Get.back();
     } else {
-      print('some error is occured');
+      dogCatcherShowToast(message: 'some error is occured');
     }
   }
 }

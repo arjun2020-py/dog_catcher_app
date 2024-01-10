@@ -69,19 +69,28 @@ class ScreenLogin extends StatelessWidget {
                               loginController.siginIn();
                             }
                           },
-                          child: DogCatcherTextWIdget(
-                              text: LocalName.login.tr,
-                              color: CustomColor().appLogoHeadingColor,
-                              fontSize: 15,
-                              fontFamily: CustomFontFamily().PoppinsFamily,
-                              fontWeight: FontWeight.w400)),
+                          child: Obx(
+                            () => loginController.isAuthenticated.value
+                                ? CircularProgressIndicator()
+                                : DogCatcherTextWIdget(
+                                    text: LocalName.login.tr,
+                                    color: CustomColor().appLogoHeadingColor,
+                                    fontSize: 15,
+                                    fontFamily:
+                                        CustomFontFamily().PoppinsFamily,
+                                    fontWeight: FontWeight.w400),
+                          )),
                       verticalSizedBox(15),
                       CustomOrWidget(),
                       verticalSizedBox(20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          FaIcon(FontAwesomeIcons.google),
+                          InkWell(
+                              onTap: () {
+                                loginController.siginInWithGoogle();
+                              },
+                              child: FaIcon(FontAwesomeIcons.google)),
                           FaIcon(FontAwesomeIcons.github),
                           FaIcon(FontAwesomeIcons.linkedin)
                         ],
@@ -101,12 +110,15 @@ class ScreenLogin extends StatelessWidget {
                             onTap: () {
                               Get.toNamed(DogCatcherRoute().siginup);
                             },
-                            child: DogCatcherTextWIdget(
-                                text: LocalName.siginup.tr,
-                                color: CustomColor().appLogoHeadingColor,
-                                fontSize: 15,
-                                fontFamily: CustomFontFamily().PoppinsFamily,
-                                fontWeight: FontWeight.w700),
+                            child: loginController.isAuthenticated.value
+                                ? CircularProgressIndicator()
+                                : DogCatcherTextWIdget(
+                                    text: LocalName.siginup.tr,
+                                    color: CustomColor().appLogoHeadingColor,
+                                    fontSize: 15,
+                                    fontFamily:
+                                        CustomFontFamily().PoppinsFamily,
+                                    fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),

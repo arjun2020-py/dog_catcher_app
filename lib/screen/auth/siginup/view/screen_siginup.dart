@@ -7,6 +7,7 @@ import '../../../../utils/custom_images/custom_images.dart';
 import '../../../../utils/custom_widget/dog_catcher_image_widget.dart';
 import '../../../../utils/custom_widget/dog_catcher_or_widget.dart';
 import '../../../../utils/custom_widget/dog_catcher_text_widget.dart';
+import '../../../../utils/custom_widget/dog_catcher_toast.dart';
 import '../../../../utils/custom_widget/dog_cather_sizedbox_widget.dart';
 import '../../../../utils/custom_widget/dog_cather_textfiled_widget.dart';
 import '../../../../utils/interlization/interlization.dart';
@@ -80,14 +81,20 @@ class ScreenSignup extends StatelessWidget {
                         if (siginupController.formKey.currentState!
                             .validate()) {
                           siginupController.siginup();
+                                dogCatcherShowToast(message: "User is successfully created");
+
                         }
                       },
-                      child: DogCatcherTextWIdget(
-                          text: LocalName.siginup.tr,
-                          color: CustomColor().appLogoHeadingColor,
-                          fontSize: 15,
-                          fontFamily: CustomFontFamily().PoppinsFamily,
-                          fontWeight: FontWeight.w400)),
+                      child: Obx(
+                        () => siginupController.isAuthenticated.value
+                            ? CircularProgressIndicator()
+                            : DogCatcherTextWIdget(
+                                text: LocalName.siginup.tr,
+                                color: CustomColor().appLogoHeadingColor,
+                                fontSize: 15,
+                                fontFamily: CustomFontFamily().PoppinsFamily,
+                                fontWeight: FontWeight.w400),
+                      )),
                   verticalSizedBox(15),
                   CustomOrWidget(),
                   verticalSizedBox(20),
