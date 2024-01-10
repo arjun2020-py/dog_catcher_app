@@ -38,7 +38,7 @@ class LoginController extends GetxController {
     isAuthenticated(false);
     if (user != null) {
       dogCatcherShowToast(message: "User is successfully siginIn");
-      Get.toNamed(DogCatcherRoute().home);
+      Get.toNamed(DogCatcherRoute().bottomNav);
     } else {
       dogCatcherShowToast(message: 'some error is occured');
     }

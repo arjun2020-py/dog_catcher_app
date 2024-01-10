@@ -12,7 +12,12 @@ class Interlization extends Translations {
           LocalName.donHaveanAccount: "Don’t have an account ?",
           LocalName.siginup: "Siginup",
           LocalName.email: "Email",
-          LocalName.conformPassword : "Conform password"
+          LocalName.conformPassword: "Conform password",
+          LocalName.home: "Home",
+          LocalName.notification: "Notification",
+          LocalName.message: "message",
+          LocalName.profile: "Profile",
+          LocalName.reportDog : "Report dog"
         }
       };
 }
@@ -27,4 +32,9 @@ class LocalName {
   static String siginup = 'siginup';
   static String email = 'email';
   static String conformPassword = 'conform_password';
+  static String home = 'home';
+  static String notification = 'notification';
+  static String message = 'message';
+  static String profile = 'profile';
+  static String reportDog = 'report_dog';
 }
