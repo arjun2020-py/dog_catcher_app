@@ -17,7 +17,16 @@ class Interlization extends Translations {
           LocalName.notification: "Notification",
           LocalName.message: "message",
           LocalName.profile: "Profile",
-          LocalName.reportDog : "Report dog"
+          LocalName.reportDog: "Report dog",
+          LocalName.welcomeToChatty: "Welcome to Chatty",
+          LocalName.chatWithLocalAnimalControlServices:
+              "Chat with local animal   control\n services.",
+          LocalName.startChat: "Start Chat",
+          LocalName.localAnimalControlServices: "Local animal control services",
+          LocalName.chat: "Chat",
+          LocalName.settings : "Settings",
+          LocalName.qA : "Q&A",
+          LocalName.referFriends : 'Refer Friends'
         }
       };
 }
@@ -37,4 +46,13 @@ class LocalName {
   static String message = 'message';
   static String profile = 'profile';
   static String reportDog = 'report_dog';
+  static String welcomeToChatty = 'Welcome_to_chatty';
+  static String chatWithLocalAnimalControlServices =
+      'chat_with_local_animal_control_services';
+  static String startChat = 'start_chat';
+  static String localAnimalControlServices = 'local_animal_control_services';
+  static String chat = 'chat';
+  static String settings = 'Settings';
+  static String qA = 'Q&A';
+  static String referFriends = 'Refer_friends';
 }
