@@ -24,9 +24,22 @@ class Interlization extends Translations {
           LocalName.startChat: "Start Chat",
           LocalName.localAnimalControlServices: "Local animal control services",
           LocalName.chat: "Chat",
-          LocalName.settings : "Settings",
-          LocalName.qA : "Q&A",
-          LocalName.referFriends : 'Refer Friends'
+          LocalName.settings: "Settings",
+          LocalName.qA: "Q&A",
+          LocalName.referFriends: 'Refer Friends',
+          LocalName.account: "Account",
+          LocalName.privacySecurity: "Privacy &  security",
+          LocalName.about: "About",
+          LocalName.edit: "Edit",
+          LocalName.step1: "Step1:",
+          LocalName.step2: "Step2:",
+          LocalName.step3: "Step3:",
+          LocalName.dogName: "dog’s name",
+          LocalName.dogLocation: "dog's location",
+          LocalName.addNote: "add note",
+          LocalName.gender: "Gender",
+          LocalName.addPicture: "Add Picture",
+          LocalName.publish : "Publish"
         }
       };
 }
@@ -55,4 +68,17 @@ class LocalName {
   static String settings = 'Settings';
   static String qA = 'Q&A';
   static String referFriends = 'Refer_friends';
+  static String account = 'account';
+  static String privacySecurity = 'privacy_security';
+  static String about = 'about';
+  static String edit = 'edit';
+  static String step1 = 'step1';
+  static String step2 = 'step2';
+  static String step3 = 'step3';
+  static String dogName = 'dog_name';
+  static String dogLocation = 'dog_location';
+  static String addNote = 'add_note';
+  static String gender = 'gender';
+  static String addPicture = 'add_picture';
+  static String publish = 'publish';
 }

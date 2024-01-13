@@ -9,7 +9,7 @@ class CustomColor {
   final Color appBlackColor = Color(0xff000000);
   final Color appGaryColor = Colors.grey;
   final Color appGreenColor = Colors.green;
-  final Color appDivderColor = Color(0xff7D7373CC);
+  final Color appDivderColor = Color(0xB2A6A5A5);
   final Color buttonGreenColor = Color(0xFF73FC06);
   final Color appWhiteColor = Color(0xffffffff);
 }

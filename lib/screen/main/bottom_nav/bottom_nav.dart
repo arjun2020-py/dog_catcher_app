@@ -1,4 +1,3 @@
-import 'package:dog_catcher_app/utils/custom_router/custom_router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

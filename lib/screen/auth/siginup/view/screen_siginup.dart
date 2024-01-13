@@ -25,7 +25,8 @@ class ScreenSignup extends StatelessWidget {
           children: [
             Form(
               key: siginupController.formKey,
-              child: Column(
+              child:
+               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   verticalSizedBox(100),

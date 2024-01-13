@@ -6,6 +6,7 @@ import 'package:dog_catcher_app/utils/interlization/interlization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../utils/custom_widget/dog_catcher_divder_widget.dart';
 import 'compoents/custom_elev_button.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -91,9 +92,7 @@ class ScreenHome extends StatelessWidget {
                       fontSize: 15,
                       fontFamily: CustomFontFamily().PoppinsFamily,
                       fontWeight: FontWeight.w300),
-                  Divider(
-                    color: CustomColor().appDivderColor,
-                  ),
+                  DogCatcherDivderWidget(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

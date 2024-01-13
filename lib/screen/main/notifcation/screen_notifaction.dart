@@ -13,10 +13,11 @@ class ScreenNotifaction extends StatelessWidget {
     return Scaffold(
       backgroundColor: CustomColor().appMainColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: CustomColor().appTenaryColor,
-        leading:
-            IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new)),
+        // leading:
+        //     IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new)),
         title: DogCatcherTextWIdget(
             text: LocalName.notification.tr,
             color: CustomColor().appBlackColor,
