@@ -1,3 +1,4 @@
+
 import 'package:dog_catcher_app/utils/custom_widget/dog_catcher_toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -29,11 +30,16 @@ class FirebaseAuthServices {
     } on FirebaseAuthException catch (e) {
       //email is created or not
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-       dogCatcherShowToast(message: 'Invaild email or password.');
+        dogCatcherShowToast(message: 'Invaild email or password.');
       } else {
         dogCatcherShowToast(message: 'An error occured: ${e.code}');
       }
     }
+  }
+
+  Future<String> currentUser() async {
+    User? user =await FirebaseAuth.instance.currentUser;
+    return user!.uid;
   }
 
   // Sign out

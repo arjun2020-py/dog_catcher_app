@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/custom_widget/dog_catcher_divder_widget.dart';
+import '../../auth/firebase_auth_implemention/fire_auth_services.dart';
 import 'compoents/custom_elev_button.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({super.key});
+  ScreenHome({super.key});
+  final FirebaseAuthServices _authServices = FirebaseAuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,13 @@ class ScreenHome extends StatelessWidget {
                 Icons.search,
                 size: 25,
                 color: CustomColor().appBlackColor,
-              ))
+              )),
+          IconButton(
+              onPressed: () {
+                _authServices.signOut();
+                Get.back();
+              },
+              icon: Icon(Icons.logout))
         ],
       ),
       body: ListView.builder(
