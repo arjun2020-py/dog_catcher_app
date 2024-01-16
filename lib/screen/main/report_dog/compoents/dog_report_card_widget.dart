@@ -9,11 +9,15 @@ class DogReportCardWidget extends StatelessWidget {
       {super.key,
       required this.reportDogController,
       required this.icon,
-      required this.hintText});
+      required this.hintText,
+      required this.controller,
+      required this.validator});
 
   final ReportDogController reportDogController;
   final IconData icon;
   final String hintText;
+  final TextEditingController controller;
+   final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -31,11 +35,11 @@ class DogReportCardWidget extends StatelessWidget {
           child: DogCatcherTextfiledWidget(
               radius: 20,
               hintText: hintText,
-              validator: (p0) {},
+              validator: validator,
               textInputAction: TextInputAction.next,
               textInputType: TextInputType.name,
               obxText: false,
-              controller: reportDogController.dogNameController),
+              controller: controller),
         )
       ],
     );

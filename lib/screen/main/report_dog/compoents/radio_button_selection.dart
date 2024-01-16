@@ -25,9 +25,10 @@ class _RadioButtonSelectionWidgetState
     extends State<RadioButtonSelectionWidget> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Obx(
-        () => Row(
+    return Obx(
+      () => SizedBox(
+        height: MediaQuery.sizeOf(context).height * 0.2,
+        child: Row(
           children: [
             ListView.builder(
                 scrollDirection: Axis.horizontal,
