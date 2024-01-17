@@ -6,7 +6,7 @@ import 'package:dog_catcher_app/screen/main/profile/view/screen_settings.dart';
 import 'package:flutter/material.dart';
 
 import '../../screen/main/bottom_nav/bottom_nav.dart';
-import '../../screen/main/home/screen_home.dart';
+import '../../screen/main/home/view/screen_home.dart';
 
 class DogCatcherRoute {
   String login = 'login';

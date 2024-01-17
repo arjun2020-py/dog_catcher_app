@@ -40,7 +40,7 @@ class ScreenAccount extends StatelessWidget {
             children: [
               CircleAvatar(
                   backgroundColor: CustomColor().appWhiteColor,
-                  radius: 60,
+                  radius: 50,
                   child: Image.asset(
                     CustomImages().profileImage,
                     width: 100,

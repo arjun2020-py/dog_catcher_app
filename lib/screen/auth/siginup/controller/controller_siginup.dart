@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dog_catcher_app/screen/auth/firebase_auth_implemention/fire_auth_services.dart';
 import 'package:dog_catcher_app/utils/custom_widget/dog_catcher_toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +15,9 @@ class SiginupController extends GetxController {
       conformpasswordController = TextEditingController();
 
   RxBool isAuthenticated = false.obs;
+
+  CollectionReference _collectionReference =
+      FirebaseFirestore.instance.collection('user_list');
 
   userValidation(String value) {
     if (value.isEmpty) {
@@ -49,9 +54,20 @@ class SiginupController extends GetxController {
     String password = passwordController.text;
     String confromPasswrod = conformpasswordController.text;
 
+    //create a map of data
+    Map<String, String> dataTOSend = {
+      'username': username,
+      'email': email,
+      'password': password,
+      'conform_passwrod': confromPasswrod
+    };
+
+    //add a new item  to the user_list collection
+    _collectionReference.add(dataTOSend);
+
     User? user =
         await _authServices.siginupWithEmailAndPassword(email, password);
-    isAuthenticated(false);    
+    isAuthenticated(false);
 
     if (user != null) {
       dogCatcherShowToast(message: "User is successfully created");
@@ -59,5 +75,14 @@ class SiginupController extends GetxController {
     } else {
       dogCatcherShowToast(message: 'some error is occured');
     }
+  }
+
+  @override
+  void dispose() {
+    usernameController.clear();
+    emailController.clear();
+    passwordController.clear();
+    conformpasswordController.clear();
+    super.dispose();
   }
 }

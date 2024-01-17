@@ -100,6 +100,7 @@ class ReportDogController extends GetxController {
       }
       //create a map of data
       Map<String, String> dataToSend = {
+        
         'name': dogName,
         'location': dogLocation,
         'add_note': addNote,

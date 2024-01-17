@@ -103,20 +103,22 @@ class ScreenReportDog extends StatelessWidget {
                 DogCatcherDivderWidget(),
                 Center(
                   child: Obx(
-                                      () =>  ElevatedButton(
+                    () => ElevatedButton(
                       onPressed: () {
                         reportDogController.publishReport();
                       },
-                      child:reportDogController.isLodaing.value? CircularProgressIndicator(): DogCatcherTextWIdget(
-                        text: LocalName.publish.tr,
-                        color: CustomColor().appBlackColor,
-                        fontSize: 20,
-                        fontFamily: CustomFontFamily().PoppinsFamily,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      child: reportDogController.isLodaing.value
+                          ? CircularProgressIndicator()
+                          : DogCatcherTextWIdget(
+                              text: LocalName.publish.tr,
+                              color: CustomColor().appBlackColor,
+                              fontSize: 20,
+                              fontFamily: CustomFontFamily().PoppinsFamily,
+                              fontWeight: FontWeight.w400,
+                            ),
                       style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(
-                              Size(MediaQuery.of(context).size.width * 0.7, 50)),
+                          minimumSize: MaterialStateProperty.all(Size(
+                              MediaQuery.of(context).size.width * 0.7, 50)),
                           backgroundColor: MaterialStateProperty.all(
                               CustomColor().appSecondryColor)),
                     ),

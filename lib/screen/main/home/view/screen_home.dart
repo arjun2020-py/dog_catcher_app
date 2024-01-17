@@ -7,9 +7,9 @@ import 'package:dog_catcher_app/utils/interlization/interlization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/custom_widget/dog_catcher_divder_widget.dart';
-import '../../auth/firebase_auth_implemention/fire_auth_services.dart';
-import 'compoents/custom_elev_button.dart';
+import '../../../../utils/custom_widget/dog_catcher_divder_widget.dart';
+import '../../../auth/firebase_auth_implemention/fire_auth_services.dart';
+import '../compoents/custom_elev_button.dart';
 
 class ScreenHome extends StatelessWidget {
   ScreenHome({super.key}) {
@@ -46,7 +46,6 @@ class ScreenHome extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   _authServices.signOut();
-                  Get.back();
                 },
                 icon: Icon(Icons.logout))
           ],
@@ -71,12 +70,18 @@ class ScreenHome extends StatelessWidget {
               List<QueryDocumentSnapshot> documents = querySnapshot!.docs;
 
               //convert the documents to Maps
-              List<Map> items = documents.map((e) => e.data() as Map).toList();
+              List<Map> items = documents.map((e) => {
+                'id':e.id,
+                'name':e['name'],
+                'location':e['location'],
+                'add_note':e['add_note'],
+                'gender':e['gender'],
+                'image':e['image']
+              }).toList();
 
               return ListView.builder(
                 itemCount: items.length,
                 itemBuilder: (BuildContext context, int index) {
-                  print('report dog     ${items.length}');
                   //Get the item at this index
                   Map thisItem = items[index];
 
@@ -91,7 +96,7 @@ class ScreenHome extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Stack(alignment: Alignment.topRight, children: [
-                            thisItem['image'] != null
+                            thisItem.containsKey('image')
                                 ? Image.network('${thisItem['image']}')
                                 : Image.asset('assets/images/dog .png'),
                             IconButton(

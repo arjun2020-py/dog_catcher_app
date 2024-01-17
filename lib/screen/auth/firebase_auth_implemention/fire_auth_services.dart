@@ -1,6 +1,7 @@
-
+import 'package:dog_catcher_app/utils/custom_router/custom_router.dart';
 import 'package:dog_catcher_app/utils/custom_widget/dog_catcher_toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 
 class FirebaseAuthServices {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -38,12 +39,13 @@ class FirebaseAuthServices {
   }
 
   Future<String> currentUser() async {
-    User? user =await FirebaseAuth.instance.currentUser;
+    User? user = await FirebaseAuth.instance.currentUser;
     return user!.uid;
   }
 
   // Sign out
   Future signOut() async {
     await auth.signOut();
+    Get.toNamed(DogCatcherRoute().login);
   }
 }

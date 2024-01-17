@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dog_catcher_app/utils/custom_color/custom_color.dart';
 import 'package:dog_catcher_app/utils/custom_font_family/custom_font_family.dart';
 import 'package:dog_catcher_app/utils/custom_images/custom_images.dart';
@@ -13,8 +14,12 @@ import '../compoents/custom_card_widget.dart';
 import '../compoents/custom_list_tile_widget.dart';
 
 class ScreenProfile extends StatelessWidget {
-  const ScreenProfile({super.key});
-
+  ScreenProfile({super.key}) {
+    _stream = _collectionReference.snapshots();
+  }
+  CollectionReference _collectionReference =
+      FirebaseFirestore.instance.collection('user_list');
+  late Stream<QuerySnapshot> _stream;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +40,8 @@ class ScreenProfile extends StatelessWidget {
         ),
         backgroundColor: CustomColor().appMainColor,
         body: Center(
-          child: Column(
+          child:
+           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -52,7 +58,9 @@ class ScreenProfile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 50),
                     child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(DogCatcherRoute().account);
+                        },
                         icon: Icon(
                           Icons.edit,
                           color: CustomColor().appBlackColor,

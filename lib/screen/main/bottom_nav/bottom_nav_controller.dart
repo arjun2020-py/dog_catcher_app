@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home/screen_home.dart';
+import '../home/view/screen_home.dart';
 import '../messages/screen_message.dart';
 import '../notifcation/screen_notifaction.dart';
 import '../profile/view/screen_profile.dart';
