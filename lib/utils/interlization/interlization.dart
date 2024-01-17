@@ -39,7 +39,11 @@ class Interlization extends Translations {
           LocalName.addNote: "add note",
           LocalName.gender: "Gender",
           LocalName.addPicture: "Add Picture",
-          LocalName.publish : "Publish"
+          LocalName.publish: "Publish",
+          LocalName.dogDetails: "Dog Details",
+          LocalName.location : "Location",
+          LocalName.size : "Size",
+          LocalName.note : "Note"
         }
       };
 }
@@ -81,4 +85,8 @@ class LocalName {
   static String gender = 'gender';
   static String addPicture = 'add_picture';
   static String publish = 'publish';
+  static String dogDetails = 'dog_details';
+  static String location = 'location';
+  static String size = 'size';
+  static String note = 'note';
 }
