@@ -91,7 +91,7 @@ class ScreenHome extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 10),
                     child: InkWell(
-                      onTap: () => Get.to(ScreenDetailedHome()),
+                      onTap: () => Get.to(ScreenDetailedHome(id: thisItem['id'],)),
                                           child: Card(
                         color: CustomColor().appTenaryColor,
                         child: Column(
